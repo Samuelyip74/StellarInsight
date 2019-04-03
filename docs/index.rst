@@ -1,9 +1,9 @@
 .. Stellar Insight documentation master file, created by
-   sphinx-quickstart on Wed Apr  3 02:26:17 2019.
+   sphinx-quickstart on Wed Apr  3 03:28:11 2019.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Stellar Insight's Documentation - version 1.1
+Stellar Insight's - 1.1 Documentation!
 ===========================================
 
 .. toctree::
