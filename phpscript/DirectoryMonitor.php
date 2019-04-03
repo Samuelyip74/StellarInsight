@@ -10,7 +10,7 @@ $inoInst = inotify_init();
 stream_set_blocking($inoInst, 0);
 
 // watch if a file is created or deleted in our directory to watch
-$watch_id = inotify_add_watch($inoInst, $dirWatch, IN_CREATE | IN_DELETE);
+$watch_id = inotify_add_watch($inoInst, $dirWatch, IN_CREATE | IN_MOVE);
 
 // not the best way but sufficient for this example :-)
 while(true){
@@ -18,10 +18,9 @@ while(true){
   // read events (
   // which is non blocking because of our use of stream_set_blocking
   $events = inotify_read($inoInst);
-
   // output data
   if(!empty($events)){
-     exec('php /var/www/html/phpscript/log2sql.php');
+     exec('php /var/www/html/phpscript/log2sql.php '.$dirWatch.$events[0]['name']);
   } 
   print_r($events);
 }
