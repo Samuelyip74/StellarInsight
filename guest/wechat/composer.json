@@ -1,0 +1,5 @@
+{
+    "require": {
+        "oakhope/oauth2-wechat": "^1.0"
+    }
+}
