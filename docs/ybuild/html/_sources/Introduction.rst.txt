@@ -1,14 +1,12 @@
+************
 Introduction
-============
+************
 
-The MIT License (MIT)
+Stellar Insight transforms your guest WiFi experience into a powerful social WiFi marketing, research, and customer insights tool. Provide one-click access to your Wi-Fi via Facebook,Google, Office365, WeChat, email and other popular social sites. Get access to guest’s age, gender, interests, email, and other key attributes. Understand the demographics of your visitors and engage with them in an opt-in model. 
 
-Copyright <2019> Alcatel-Lucent Enterprise Pte Ltd
+Deliver amazing guest experience with responsive splash page, social-media login, or self-registration workflow to ensure seamless login. There are various modules available in Stellar Insights: **Captive Portal**, **Location Services**, **Reporting**.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
+#. Captive Portal 
+#. Location Services
+#. Reporting
 
