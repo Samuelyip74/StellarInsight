@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Stellar Insight's Documentation
+Stellar Insight's Documentation - version 1.1
 ===========================================
 
 .. toctree::
