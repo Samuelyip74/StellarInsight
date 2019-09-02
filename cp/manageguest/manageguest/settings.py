@@ -25,7 +25,7 @@ SECRET_KEY = 'gnde%sf=!&(_fcfq&@0(cp6-jpc-7sjhf!o=i#q8j58-te+ie_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0','localhost','192.168.2.250']
+ALLOWED_HOSTS = ['0.0.0.0','localhost','192.168.2.250','extcp.ale-enterprise.com']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'guest',
     'analytics',
 ]
@@ -70,6 +71,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'manageguest.wsgi.application'
+SITE_ID = 1
 
 
 # Database
@@ -111,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Singapore' 
 
 USE_I18N = True
 

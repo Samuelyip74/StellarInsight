@@ -1,0 +1,23 @@
+               <DIV class="container">
+                <DIV class="row">
+                <DIV class="col-12">
+                <table class="table table-bordered">
+                  <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Site</th>
+                        </tr>
+                </thead>
+                <tbody>
+                        {% for url in urllist %}
+                        {% if url.url %}
+                        <tr>
+                        <th scope="row">#</th>
+                        <td>{{ url.url }}</td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                </tbody>
+                </table>
+                </DIV>
+

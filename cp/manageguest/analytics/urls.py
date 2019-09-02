@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import url
 from django.urls import path
-from .views import dashboard
+from .views import dashboard,urldetail
 
 app_name = 'analytics'
 
 urlpatterns = [
     url(r'^$', dashboard, name='home'),
+    url(r'^(?P<username>[-\w]+)/$', urldetail, name='detail'),
 ]

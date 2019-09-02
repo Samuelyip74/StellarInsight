@@ -68,7 +68,7 @@
 			{% for url in top10urls %}
 			{% if url.url %}
    			<tr>
-      			<th scope="row">#</th>
+				<th scope="row">{{ forloop.counter|add:"-1" }}</th>
 			<td>{{ url.url }}</td>
 			<td>{{ url.total }}</td>
     			</tr>
@@ -92,8 +92,8 @@
                         {% for user in top10users %}
                         {% if user.username %}
                         <tr>
-                        <th scope="row">#</th>
-                        <td>{{ user.username }}</td>
+                        <th scope="row">{{ forloop.counter }}</th>
+			<td><a href="{% url 'analytics:detail' user.username %}">{{ user.username }}</a></td>
                         <td>{{ user.total }}</td>
                         </tr>
                         {% endif %}
