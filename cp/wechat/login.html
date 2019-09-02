@@ -1,0 +1,132 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+    <script src="js/angular-bootstrap/jquery.js"></script>
+    <script src="js/angular-bootstrap/angular.min.js"></script>
+    <script src="js/angular-bootstrap/angular-local-storage.js"></script>
+    <script src="js/angular-bootstrap/angular-translate.min.js"></script>
+    <script src="js/angular-bootstrap/angular-translate-loader-static-files.min.js"></script>
+    <script src="js/angular-bootstrap/underscore.js"></script>
+    <script src="js/angular-bootstrap/angular-animate.min.js"></script>
+    <script src="js/angular-bootstrap/bootstrap.min.js"></script>
+    <script src="js/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="js/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+    <script src="js/user-custom/main.js"></script>
+    <script src="js/user-custom/action-service.js"></script>
+    <script src="js/angular-bootstrap/angularjs-social-login.js"></script>
+    <script src="js/user-custom/main-constant.js"></script>
+    <script src="js/user-custom/service.js"></script>
+    <script src="js/user-custom/login-controller.js"></script>
+    <script src="js/user-custom/portal-param.js"></script>
+    <script src="js/user-custom/style.js"></script>
+    
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/portal-layout.css">
+    <link rel="stylesheet" type="text/css" href="css/additional.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="css/declaration.css">
+    <link rel="stylesheet" href="css/flag-icon.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">      
+    <link rel="stylesheet" type="text/css" href="css/custom.css">    
+</head>
+<body ng-app="main" ng-controller="loginController as vm">
+<div class="portal_layout_container vertical-center" id="welcome_layout_id" ng-cloak>
+    <div class="row col-md-12 no-padding-left-right">
+        <div class="portal_layout_function">
+            <div class="row no-padding-left-right">
+                <div id="welcome_bg" class="welcome_portal_layout_function_bg" style="background:none;background-color:white;">
+                        <div class="container no-padding-left-right logo">
+                                <img id="welcome_logo" ng-src="{{vm.welcome_logo}}" width="100%" style="cursor: pointer"
+                                ng-click="vm.action.welcomeLinkedUrl()">
+                        </div> 
+                <div class="container  welcome-container-body" style="border:none;box-shadow: 0px 2px 5px 0px rgba(173,155,173,1);
+                    "
+                                             id="chohei">                  
+                         <div class="row">
+							<form class="text-center" role="form" id="nobu" name="form">
+								<div class="login-title form-group"  ng-if="vm.loginBy == 'account'">{{'login.loginWelMsg'|translate}}   </div>
+								<div class="login-title form-group"  ng-if="vm.loginBy == 'accessCode'">{{'login.accessCodeMsg'|translate}}</div>
+								<div class="login-title form-group"  ng-if="vm.loginBy == 'termsOfUse'">{{'login.buildInAccountMsg'|translate}}</div>
+								<div class="form-group" ng-if="vm.loginBy == 'account'">
+											<span class="input-icon icon-right" ng-class="{'has-error':form.username.$error.invalid }">
+																	<input type="text" class="form-control" name="username"  ng-model="vm.username" placeholder="{{'login.username'|translate}}" validator="vm.action.rules.username">
+																	<i class="glyphicon glyphicon-user" style="color:#ccc"></i>
+										   </span>
+									<div ng-show="form.username.$error"  style="color: red">{{form.username.$error.errMessage|translate}}</div>
+										</div>
+
+								<div class="form-group" ng-if="vm.loginBy == 'account'">
+											<span class="input-icon icon-right" ng-class="{'has-error':form.password.$error.invalid }">
+																	<input type="password" class="form-control" name="password" ng-model="vm.password" placeholder="{{'login.password'|translate}}" id="password" validator="vm.action.rules.password">
+																	<i class="glyphicon glyphicon-lock" style="color:#ccc"></i>
+										   </span>
+									<div ng-show="form.password.$error"  style="color: red">{{form.password.$error.errMessage |translate}}</div>
+										</div>
+
+								<div class="form-group" ng-if="vm.loginBy == 'accessCode'">
+											<span class="input-icon icon-right" ng-class="{'has-error':form.accessCode.$error.invalid }">
+																	<input class="form-control" name="accessCode" ng-model="vm.accessCode" placeholder="{{'login.accessCode'|translate}}" id="accessCode" validator="vm.action.rules.accessCode">
+																	<i class="glyphicon glyphicon-lock" style="color:#ccc"></i>
+										   </span>
+									<div ng-show="form.accessCode.$error"  style="color: red">{{form.accessCode.$error.errMessage|translate}}</div>
+								</div>
+
+                                <div class="form-group">
+                                    <label>
+										<input id="declara" type="checkbox" ng-model="vm.acceptItem"> <span
+											id="accept">{{"login.acceptTheItems"|translate}}</span>
+										<a href="declaration.html" id="terms">{{"login.termsOfUse"|translate}}</a>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                <a  ng-click="vm.action.login()" ng-if="vm.loginBy == 'account'" class="btn btn-success btn-block"  ng-disabled="!vm.acceptItem || form.$error.invalid || vm.action.validateForm(form) || vm.block"> <i ng-if="vm.block" class='fa fa-spinner fa-spin '></i>{{"login.loginButton"|translate}}</a>
+								<a  ng-click="vm.action.accessCode()" ng-if="vm.loginBy == 'accessCode'" class="btn btn-success btn-block"  ng-disabled="!vm.acceptItem || form.$error.invalid || vm.action.validateForm(form) || vm.block"><i ng-if="vm.block" class='fa fa-spinner fa-spin '></i>{{"login.loginButton"|translate}}</a>
+								<a  ng-click="vm.action.loginBuildIn()" ng-if="vm.loginBy == 'termsOfUse'" class="btn btn-success btn-block" ng-disabled="!vm.acceptItem || vm.block"><i ng-if="vm.block" class='fa fa-spinner fa-spin '></i>{{"login.loginButton"|translate}}</a>
+                                </div>
+                                <div>
+								<div class="form-group" ng-class="{'col-lg-6 col-md-6 col-xs-12 col-sm-12':vm.selfRegistration}" ng-if="vm.loginBy == 'account'">
+                                            <div class="form-check">
+										<input type="checkbox" class="form-check-input" id="rememberCheck" ng-model="vm.rememberMe">
+                                                <label class="form-check-label" for="rememberCheck" id="rememberme">{{"login.rememberMe"|translate}}</label>
+                                            </div>
+                                        </div>
+								        <div class="form-group" ng-class="{'col-lg-6 col-md-6 col-xs-12 col-sm-12':vm.selfRegistration}" ng-if="vm.selfRegistration">
+								        	<a id="createaccount" href="register.html"> {{"login.createAccount"|translate}}</a>
+										</div>
+                                </div>
+										<div class="clearfix"></div>
+
+								<div class="loginbox-or form-group" ng-if="vm.socialLogin">
+											<div class="or-line"></div>
+											<div class="or" id="splitline">{{"login.or"|translate}}</div>
+										</div>
+
+								<div class="form-group" ng-if="vm.socialLogin && vm.googleID !=''">
+									<a class="btn btn-danger btn-block btn-social btn-google" ng-click="vm.action.toSocialLoginHtml('googlelogin.html')"> <span class="fa fa-google"></span>
+										<span id="creategooglecode">{{"login.signInGoogle"|translate}}</span></a>
+
+										</div>
+								<div class="form-group" ng-if="vm.socialLogin && vm.facebookID !='' ">
+									<a class="btn btn-primary btn-block btn-social btn-facebook" ng-click="vm.action.toSocialLoginHtml('facebooklogin.html')"><span class="fa fa-facebook"></span>
+										<span id="createfacebookcode">{{"login.signInFacebook"|translate}}</span></a>
+										</div>
+							</form>
+						</div>
+                    </div>
+					<!-- <div class="clearfix"></div> -->
+                </div>
+            </div>
+		
+        </div>
+    </div>
+    
+</div>
+</body>
+</html>

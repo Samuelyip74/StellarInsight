@@ -1,0 +1,9 @@
+var welcomeLinkedURL = "";
+var successLinkedURL = "";
+var welcome_logo = "img/logo-default.jpg";
+var success_logo = "img/logo-default.jpg";
+var welcome_portal_video_1 = "img/video-default.mp4";
+var welcome_portal_video_preimg = "img/ale.preimg.png";
+var success_portal_video_1 = "img/video-default.mp4";
+var welcome_portal_broadcast_1 = [{image: 'img/ad-broadcast-1.jpg'}, {image: 'img/ad-broadcast-2.jpg'}, {image: 'img/ad-broadcast-3.jpg'}, {image: 'img/ad-broadcast-4.jpg'}, {image: 'img/ad-broadcast-5.jpg'}];
+var success_portal_broadcast_1 = [{image: 'img/ad-broadcast-1.jpg'}, {image: 'img/ad-broadcast-2.jpg'}, {image: 'img/ad-broadcast-3.jpg'}, {image: 'img/ad-broadcast-4.jpg'}, {image: 'img/ad-broadcast-5.jpg'}];

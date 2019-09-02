@@ -1,0 +1,40 @@
+.container{
+    width:80%;
+}
+
+@media screen and (min-width: 768px) {
+    .container{
+        margin:0 auto;
+        width:30%;
+    }
+
+}
+
+.vertical-center {
+    min-height: 100% !important;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh !important; /* These two lines are counted as one :-)       */
+    display: flex !important;
+    align-items: center !important;
+}
+
+*{
+    font-family: 'Roboto', sans-serif!important;
+
+}
+
+.fa {
+    font-family:FontAwesome !important;
+}
+
+.glyphicon {
+    font-family:'Glyphicons Halflings'!important;
+}
+
+.login-title {
+    text-align: center;
+    width:100%;
+}
+
+.logo{
+    margin-bottom:20px;
+}
