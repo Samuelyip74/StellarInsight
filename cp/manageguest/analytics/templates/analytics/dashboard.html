@@ -1,0 +1,112 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Analytics</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}" ></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+</head>
+<body>
+
+	<DIV class="container">
+		<DIV class="container">
+			<DIV class="row">
+			<div class="col-3">	
+				<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+  					<div class="card-body">
+    					<h5 class="card-title">Unique Visitors</h5>
+					<h1 class="card-text">{{ unique_visitors }}</h1p>
+  				</div>
+				</div>
+			</div>
+			<div class="col-3">
+                                <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                                        <div class="card-body">
+                                        <h5 class="card-title">Unique Devices</h5>
+                                        <h1 class="card-text">{{ unique_devices }}</h1p>
+                                </div>
+                                </div>
+                        </div>
+			<div class="col-3">
+                                <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                                        <div class="card-body">
+                                        <h5 class="card-title">Unique URLs</h5>
+                                        <h1 class="card-text">{{ unique_urls }}</h1p>
+                                </div>
+                                </div>
+                        </div>
+			<div class="col-3">
+                                <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                                        <div class="card-body">
+                                        <h5 class="card-title">Unique Services</h5>
+                                        <h1 class="card-text">{{ unique_dstports }}</h1p>
+                                </div>
+                                </div>
+                        </div>
+			</div>
+
+
+		</DIV>
+		<DIV class="container">
+		<DIV class="row">
+		<DIV class="col-6">
+		<table class="table table-bordered">
+		  <thead>
+   			<tr>
+      			<th scope="col">#</th>
+      			<th scope="col">Site</th>
+     			<th scope="col">Hits</th>
+    			</tr>
+  		</thead>
+  		<tbody>
+			{% for url in top10urls %}
+			{% if url.url %}
+   			<tr>
+      			<th scope="row">#</th>
+			<td>{{ url.url }}</td>
+			<td>{{ url.total }}</td>
+    			</tr>
+			{% endif %}
+			{% endfor %}
+  		</tbody>
+		</table>
+		</DIV>
+
+
+                <DIV class="col-6">
+                <table class="table table-bordered">
+                  <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Connections</th>
+                        </tr>
+                </thead>
+                <tbody>
+                        {% for user in top10users %}
+                        {% if user.username %}
+                        <tr>
+                        <th scope="row">#</th>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.total }}</td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                </tbody>
+                </table>
+                </DIV>
+		</DIV>
+		</DIV>
+
+
+	</DIV>
+
+    
+</body>
+</html>
